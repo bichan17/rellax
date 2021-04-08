@@ -270,7 +270,14 @@
       var verticalSpeed = dataVerticalSpeed ? dataVerticalSpeed : self.options.verticalSpeed;
       var horizontalSpeed = dataHorizontalSpeed ? dataHorizontalSpeed : self.options.horizontalSpeed;
 
-      // Optional individual block movement axis direction as data attr, otherwise global movement direction
+      var min = dataMin ? dataMin : self.options.min;
+      var max = dataMax ? dataMax : self.options.max;
+      var minX = dataMinX ? dataMinX : self.options.minX;
+      var maxX = dataMaxX ? dataMaxX : self.options.maxX;
+      var minY = dataMinY ? dataMinY : self.options.minY;
+      var maxY = dataMaxY ? dataMaxY : self.options.maxY;
+
+      // Optional individual block movement axis direction as data attr, otherwise gobal movement direction
       var verticalScrollAxis = dataVericalScrollAxis ? dataVericalScrollAxis : self.options.verticalScrollAxis;
       var horizontalScrollAxis = dataHorizontalScrollAxis ? dataHorizontalScrollAxis : self.options.horizontalScrollAxis;
 
@@ -314,12 +321,12 @@
         style: style,
         transform: transform,
         zindex: dataZindex,
-        min: dataMin,
-        max: dataMax,
-        minX: dataMinX,
-        maxX: dataMaxX,
-        minY: dataMinY,
-        maxY: dataMaxY
+        min: min,
+        max: max,
+        minX: minX,
+        maxX: maxX,
+        minY: minY,
+        maxY: maxY
       };
     };
 
@@ -432,7 +439,6 @@
             positionX = positionX <= blocks[i].min ? blocks[i].min : positionX;
           }
         }
-
         // Check if directional min limits are defined
         if (blocks[i].minY != null) {
             positionY = positionY <= blocks[i].minY ? blocks[i].minY : positionY;
